@@ -5,11 +5,19 @@ import Card from './components/Card'
 Card
 function App() {
 const response=[{heading:"gym",data:"i was goin to gym"},{heading:"cafe",data:"i have to open cafe "}]
+
+const run=async(data)=>{
+console.log("fnc runing")
+}
+
   return (
     <Fragment key={"helooo"}>
+      
       <h2>before</h2>
-      <Submit/>
+      <Submit  run={run}/>
       <h2>after</h2>
+
+      
 {response.map((val,idx)=>{
   return <Fragment key={idx}> <Card heading={val.heading} data={val.data}/> </Fragment>
 })}

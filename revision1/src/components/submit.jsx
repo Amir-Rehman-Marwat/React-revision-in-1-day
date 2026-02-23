@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Submit() {
+function Submit({run}) {
   return (
     <div>
-        <button>Submit</button>
+        <button onClick={run}> Submit</button>
     </div>
   )
 }
