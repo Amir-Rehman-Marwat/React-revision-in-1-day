@@ -1,9 +1,11 @@
 import React from 'react'
 
-function Submit({run}) {
+function Submit({run,seta}) {
   return (
     <div>
-        <button onClick={run}> Submit</button>
+        <button onClick={()=>{
+          seta("hello from submit")
+        }}> Submit</button>
     </div>
   )
 }
