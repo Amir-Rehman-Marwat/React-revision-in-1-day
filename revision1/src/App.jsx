@@ -9,6 +9,25 @@ let x=10
   // hooks
   const [a, seta] = useState(x)
   console.log(a)
+  const [name, setname] = useState("")
+  const [age, setage] = useState("")
+
+  const submitHandler=(e)=>{
+    e.preventDefault()
+console.log("form submitted")
+const nameRegex=/^[A-Za-z\s]{2,30}$/;
+const ageRegex=/^(?:1[01][0-9]|120|[1-9]?[0-9])$/;
+const validName=nameRegex.test(name);
+const validAge=ageRegex.test(age);
+if(!validName){
+  alert("Name must contain only letters and spaces (2–30 characters)")
+}
+if(!validAge){
+  alert("Age must be a number between 0 and 120")
+}
+setname("")
+setage("")
+  }
   // other
 const response=[{heading:"gym",data:"i was goin to gym"},{heading:"cafe",data:"i have to open cafe "}]
 const run=async(data)=>{
@@ -17,6 +36,22 @@ console.log("fnc runing")
 
   return (
     <Fragment key={"helooo"}>
+
+
+      <form  onSubmit={submitHandler} action="">
+        <input type="text" placeholder='enter your name' name='name' value={name} onChange={(dets)=>{
+          setname(dets.target.value)
+        }}/>
+        <input type="number" 
+        name="age"
+         id="" 
+          value={age} 
+          placeholder='"enter you age use Numbers only ...'
+          onChange={(dets)=>{
+setage(dets.target.value)
+        }}/>
+        <button  type="submit">ENTER</button>
+      </form>
       <button onClick={()=>{
         seta(prev=> prev+1)
         seta(prev=>prev)
