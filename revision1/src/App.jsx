@@ -1,16 +1,34 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import Submit from './components/submit'
 import Footer from './components/footer'
 import Card from './components/Card'
-Card
+import axios from "axios"
 function App() {
   console.log("app is rendering ")
 let x=10
   // hooks
   const [a, seta] = useState(x)
-  console.log(a)
   const [name, setname] = useState("")
   const [age, setage] = useState("")
+  const [data, setData] = useState([])
+ console.log(data)
+  useEffect(() => {
+    // alert("runinng use only one time")
+    const response=axios.get('https://jsonplaceholder.typicode.com/todos')
+    response.then(res=>{
+      if(data.length<1){
+ setData(res.data)
+      }
+     
+    }).catch(err=>{
+      alert("there is an error",err)
+    })
+     return ()=>{
+      
+     }
+    
+  },[data])
+  
 
   const submitHandler=(e)=>{
     e.preventDefault()
