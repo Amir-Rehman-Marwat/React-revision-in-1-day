@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router'
+import { ThemeContext } from '../contexts/themeContext'
 
 function Nav() {
   const navigate=useNavigate()
+  const data=useContext(ThemeContext)
+  console.log(data)
   return (
     <div className='nav'>
       <h1>THE MENTORS</h1>
@@ -27,6 +30,8 @@ function Nav() {
       <button onClick={()=>{
         navigate(+1)
       }}>Next</button>
+      <br />
+      <h2>Theme ={data}</h2>
     </div>
   )
 }
