@@ -1,12 +1,8 @@
 import React from 'react'
-import Submit from './submit'
-function Footer({data,data2}) {
 
+function Footer() {
   return (
-    <>
-    <div>i am Footer</div>
-    <Submit />
-    </>
+    <div>Footer</div>
   )
 }
 
